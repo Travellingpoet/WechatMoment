@@ -1,5 +1,8 @@
 package com.xuziq.wechat.bean
 
+import com.google.gson.annotations.SerializedName
+import org.w3c.dom.Comment
+
 /**
  *
  * @Description:     java类作用描述
@@ -10,5 +13,29 @@ package com.xuziq.wechat.bean
  * @Version:        1.0
  */
 data class MomentBean(
-    var name:String
+    @SerializedName("content")
+    var content:String,
+    @SerializedName("images")
+    var images:ArrayList<ImageList>,
+    @SerializedName("sender")
+    var sender:Sender,
+    @SerializedName("comments")
+    var comments:ArrayList<Comments>,
+    @SerializedName("error")
+    var error:String
+)data class ImageList(
+    @SerializedName("url")
+    var url:String
+)data class Sender(
+    @SerializedName("username")
+    var username:String,
+    @SerializedName("nick")
+    var nick:String,
+    @SerializedName("avatar")
+    var avatar:String
+)data class Comments(
+    @SerializedName("content")
+    var content: String,
+    @SerializedName("sender")
+    var sender: Sender
 )
